@@ -1,9 +1,28 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+import {NavLink} from 'react-router-dom'
 export default class Homepage extends React.Component{
-componentDidMount(){
-    fetch("http://localhost:8000").then(res=>{console.log('itm',res.body)})
+state = {
+    data : ""
 }
+componentDidMount(){
+    axios.get("http://localhost:8000")
+    .then(res => 
+        {console.log('itm',res)
+        this.setState({data:res.data})
+})}
 render(){
-return(<div>Homepage</div>
+return(<div><p>{this.state.data}</p>
+    <div className = "Header">
+    <div className="Hlink">
+    <NavLink to = '/'>Homepage</NavLink></div>
+    <div className="Hlink">
+    <NavLink to = '/login'>Login</NavLink>
+    </div>
+    <div className="Hlink">
+    <NavLink to = '/signup'>Sign Up</NavLink>
+    </div>
+    </div>
+    </div>
 );}
 }

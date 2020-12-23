@@ -1,38 +1,100 @@
-/* .App {
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Header{
+  background-color: grey;
+  width:100%;
+  font-size: xx-large;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  display: flex;
+  margin: 5px;
+  padding: 15px;
+}
+.Hlink{
+  margin: 15px;
+}
+.para{
+  width: 60%;
+  text-align-last: center;
+  font-size:32px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+.para:hover{
+  width: 60%;
+  text-align-last: center;
+  font-size:32px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:gold;
+}
+.header{
+  height : 100px;
+  background-color: rgba(0, 119, 255, 0.931) ;
+  width : 100%;
+  color:white;
+  font-family: sans-serif;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form{
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap:wrap;
+  flex-flow: column;
+  width:100%;
+ padding:2%;
+  }
+.tab{
+  position: relative;
+  height: 80px;
+  width: 100%;
+  padding : 5px;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.tab input{
+  padding-top:20px;
+  height:100%;
+  width:100%;
+  font-size: 30px;
+  outline: none;
+  border:none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.tab label{
+  position: absolute;
+  left:0px;
+  bottom: 0px;
+  height: 100%;
+  width:100%;
+  font-size:30px;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+.tab label::after{
+  content:"";
+  position: absolute;
+  left:0px;
+  bottom: -2px;
+  height: 100%;
+  width:100%;
+  font-size:30px;
+  pointer-events: none;
+  border-bottom: 3px solid rgb(0, 153, 255);
+  transform: translateX(-100%);
+}
+.content-name{
+  position: absolute;
+  bottom: 30px;
+  transition: all 0.3s ease;
+}
+.tab input:focus + .label-name .content-name{
+transform: translateY(-50%);
+font-size:30px;
+color: rgb(0, 153, 255);
+}
+.tab input:focus + .label-name::after{
+  transform: translateX(0%);
+  font-size:30px;
+  color: rgb(0, 153, 255);
   }
-  to {
-    transform: rotate(360deg);
-  }
-} */
