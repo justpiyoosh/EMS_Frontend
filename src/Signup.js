@@ -5,11 +5,13 @@ export default class Login extends React.Component{
     constructor(props){
         super();
         this.state ={
-            user : '',
+            user:'',
+            username : '',
             password : '',
             confirm_password:'',
             clicked : false,
         }
+    this.handleChange.bind(this);
     this.submitHandler.bind(this);
     }
     handleChange = (e)=>{
@@ -18,10 +20,17 @@ export default class Login extends React.Component{
         })
     }
     submitHandler =(e)=>{
-        console.log("Here")
+        // console.log({'email':this.state.user,'user':this.state.username,'password':this.state.password,'cnf_password':this.state.confirm_password})
         e.preventDefault();
         if(this.state.password!==this.state.confirm_password){
             alert("password mismatch")
+        }
+        else{
+            Axios.post('http://localhost:8000/api/account/register',({'email':this.state.user,'username':this.state.username,'password':this.state.password,'password2':this.state.confirm_password}))
+            .then((response)=>{
+                console.log(response)
+                alert(response.data.response)
+            })
         }
     }
     render(){
@@ -40,6 +49,11 @@ export default class Login extends React.Component{
                 <input type='email' value={this.state.user} name ='user' onChange={this.handleChange}/>
                 <label className="label-name">
                 <span className="content-name">Email</span></label>
+                </div>     
+                <div className='tab'>
+                <input type='text' value={this.state.username} name ='username' onChange={this.handleChange}/>
+                <label className="label-name">
+                <span className="content-name">Username</span></label>
                 </div>           
                 <div className='tab'>
                 <input type='password' value={this.state.password} name ='password' onChange={this.handleChange}/>

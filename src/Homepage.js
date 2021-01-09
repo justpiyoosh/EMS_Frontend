@@ -12,8 +12,8 @@ componentDidMount(){
         this.setState({data:res.data})
 })}
 render(){
-return(<div><p>{this.state.data}</p>
-    <div className = "Header">
+return(<div>
+    <span className = "Header">
     <div className="Hlink">
     <NavLink to = '/'>Homepage</NavLink></div>
     <div className="Hlink">
@@ -22,7 +22,8 @@ return(<div><p>{this.state.data}</p>
     <div className="Hlink">
     <NavLink to = '/signup'>Sign Up</NavLink>
     </div>
-    </div>
+    </span>
+    {this.state.data}
     </div>
 );}
 }

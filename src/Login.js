@@ -23,7 +23,7 @@ export default class Login extends React.Component{
         e.preventDefault();
         if(this.state.user==='xyz@123.com' && this.state.password==='123'){
             console.log("correct")
-            return(<div>{Homepage}</div>)
+            return(<Route path ='/' component = {Homepage}/>)
         }
         else{
             console.log("try again")
@@ -32,14 +32,13 @@ export default class Login extends React.Component{
     render(){
         return(
             <div>
-    
-    <div className = "Header">
-    <div className="Hlink">
-    <NavLink to = '/'>Homepage</NavLink></div>  
-    <div className="Hlink">
-    <NavLink to = '/signup'>Sign Up</NavLink>
-    </div>
-    </div> 
+                <div className = "Header">
+                <div className="Hlink">
+                <NavLink to = '/'>Homepage</NavLink></div>  
+                <div className="Hlink">
+                <NavLink to = '/signup'>Sign Up</NavLink>
+                </div>
+                </div> 
                 <h1>Login</h1>     
                 <form onSubmit={this.submitHandler}>
                 <div className='tab'>
