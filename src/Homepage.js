@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom'
+import Posts from './posts/Posts';
 export default class Homepage extends React.Component{
 state = {
     data : ""
@@ -23,7 +24,8 @@ return(<div>
     <NavLink to = '/signup'>Sign Up</NavLink>
     </div>
     </span>
-    {this.state.data}
+    <h1>{this.state.data}</h1>
+    <Posts></Posts>
     </div>
 );}
 }
