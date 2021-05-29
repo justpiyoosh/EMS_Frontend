@@ -3,13 +3,14 @@
   flex-wrap: wrap;
 }
 .Header{
-  background-color: grey;
-  width:100%;
+  text-align: center;
+  background-color:#0044ffa6;
   font-size: xx-large;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
+  justify-content: space-around; 
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width : 1550px;
   margin: 5px;
   padding: 15px;
 }

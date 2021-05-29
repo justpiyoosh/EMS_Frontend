@@ -1,7 +1,6 @@
 import React from 'react';
-import {NavLink, Route} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Axios from 'axios';
-import Homepage from './Homepage';
 
 export default class Login extends React.Component{
     constructor(props){
@@ -20,26 +19,28 @@ export default class Login extends React.Component{
     }
     submitHandler =(e)=>{
         console.log("Here")
+        console.log(this.state.user,this.state.password)
         e.preventDefault();
-        if(this.state.user==='xyz@123.com' && this.state.password==='123'){
-            console.log("correct")
-            return(<div>{Homepage}</div>)
-        }
+        if(this.state.user && this.state.password){
+            Axios.post('http://localhost:8000/api/account/login',({'email':this.state.user,'password':this.state.password}))
+            .then((response)=>{
+                console.log(response)
+                alert(response.data.response)
+            })}
         else{
-            console.log("try again")
-        }    
+            alert("Bhar usko");
+        }
     }
     render(){
         return(
             <div>
-    
-    <div className = "Header">
-    <div className="Hlink">
-    <NavLink to = '/'>Homepage</NavLink></div>  
-    <div className="Hlink">
-    <NavLink to = '/signup'>Sign Up</NavLink>
-    </div>
-    </div> 
+                <div className = "Header">
+                <div className="Hlink">
+                <NavLink to = '/'>Homepage</NavLink></div>  
+                <div className="Hlink">
+                <NavLink to = '/signup'>Sign Up</NavLink>
+                </div>
+                </div> 
                 <h1>Login</h1>     
                 <form onSubmit={this.submitHandler}>
                 <div className='tab'>
@@ -52,7 +53,7 @@ export default class Login extends React.Component{
                 <label className="label-name">
                     <span className="content-name">Password</span></label>
                 </div>
-                <button>LOGIN</button>           
+                <button type = "submit">LOGIN</button>           
             </form>
             </div>
         );
