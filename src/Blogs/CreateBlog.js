@@ -23,7 +23,7 @@ export default class CreateBlog extends Component{
             <div>
                 <input type = "text" name = "title" value = {this.state.title} onChange = {this.ChangeHandler}/>
                 <input type = "text" name = "body" value = {this.state.body} onChange = {this.ChangeHandler} />
-                <button type = "submit" onClick = {this.PostBlog}/>
+                <button type = "submit" onClick = {this.PostBlog}>Post</button>
             </div>
         );
     }

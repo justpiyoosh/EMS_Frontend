@@ -2,6 +2,10 @@
   display: flex;
   flex-wrap: wrap;
 }
+.Home{
+  display: flex;
+  flex-wrap: wrap;
+}
 .Header{
   text-align: center;
   background-color:#0044ffa6;
@@ -10,7 +14,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width : 1550px;
+  width : 1200px;
   margin: 5px;
   padding: 15px;
 }
@@ -38,18 +42,24 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.signUp{
+border : 3px solid black;
+align-items: center;
+justify-content: center;
+}
 form{
   position: relative;
   display: flex;
   flex-wrap:wrap;
   flex-flow: column;
-  width:100%;
+  width:600px;
  padding:2%;
   }
 .tab{
   position: relative;
   height: 80px;
-  width: 100%;
+  width: 550px;
   padding : 5px;
   overflow: hidden;
 }
@@ -99,3 +109,17 @@ color: rgb(0, 153, 255);
   font-size:30px;
   color: rgb(0, 153, 255);
   }
+
+.Post{
+  width: 600px;
+  align-items: center;
+  justify-content: center;
+  text-align :center;
+  border-bottom: black 2px inset;
+}
+
+.topPost{
+  border : 1px dashed blueviolet;
+  padding: 5px;
+  margin-right: 15px;
+}

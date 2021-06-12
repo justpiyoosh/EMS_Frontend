@@ -1,9 +1,7 @@
 import Axios from 'axios';
 import React from 'react';
-import {NavLink, Redirect  } from "react-router-dom";
-import {Route} from 'react-router-dom';
-import Homepage from './Homepage';
-export default class Login extends React.Component{
+import {withRouter } from "react-router-dom";
+class Signup extends React.Component{
     constructor(props){
         super();
         this.state ={
@@ -30,22 +28,19 @@ export default class Login extends React.Component{
         else{
             Axios.post('http://localhost:8000/api/account/register',({'email':this.state.user,'username':this.state.username,'password':this.state.password,'password2':this.state.confirm_password}))
             .then((response)=>{
-                
+                console.log(response);
                 //Redirect to login page on successful user signup
-                
+                return(this.props.history.push('/login'));
+            })
+            .catch((e)=>{
+                console.warn(e.message);
+                return(this.props.history.push('/'));
             })
         }
     }
     render(){
         return(
-            <div>
-                <div className = "Header">
-    <div className="Hlink">
-    <NavLink to = '/'>Homepage</NavLink></div>  
-    <div className="Hlink">
-    <NavLink to = '/login'>Login</NavLink>
-    </div>
-    </div> 
+            <div className = "signUp">
                 <h1>Sign Up</h1>
                 <form onSubmit={this.submitHandler}>
                 <div className='tab'>
@@ -74,3 +69,5 @@ export default class Login extends React.Component{
         );
     }
 }
+
+export default withRouter(Signup);

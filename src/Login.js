@@ -1,15 +1,20 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
 import Axios from 'axios';
-
-export default class Login extends React.Component{
+import { withCookies, Cookies } from 'react-cookie';
+import { instanceOf } from 'prop-types';
+class Login extends React.Component{
+    static propTypes = {
+        cookies : instanceOf(Cookies).isRequired
+    };
     constructor(props){
         super();
+        const { cookies } = props;
         this.state ={
             user : '',
             password : '',
             clicked : false,
-            Token :" ", 
+            Target : cookies.get('Target') || 'buffer',    
         }
     this.submitHandler.bind(this);
     }
@@ -19,19 +24,15 @@ export default class Login extends React.Component{
         })
     }
     submitHandler =(e)=>{
-        console.log("Here")
-        console.log(this.state.user,this.state.password)
         e.preventDefault();
         if(this.state.user && this.state.password){
             Axios.post('http://localhost:8000/api/account/login',({'username':this.state.user,'password':this.state.password}))
             .then((response)=>{
                 // Token is stored
-                if(response.status == 200){
-                    this.setState(
-                        {
-                            Token : response.data.token
-                        }
-                    )
+                if(response.status === 200){
+                    const { cookies } = this.props;
+                    cookies.set('Target',response.data.token,{path:'/'})
+                    return (this.props.history.push('/createpost'));
                 }
                 else{
                     alert("Invalid Username or Password");
@@ -69,3 +70,5 @@ export default class Login extends React.Component{
         );
     }
 }
+
+export default (withRouter(Login),withCookies(Login));

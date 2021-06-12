@@ -1,17 +1,12 @@
 import Axios from 'axios';
 import React from 'react';
-var reply = "";
-function Repost(){
-    reply = document.getElementById("Reply").value;
-    Axios.post('http://localhost:8000/api/account/blog_post',{'content':reply});
-}
+import { NavLink } from 'react-router-dom';
 const Post = (props) =>{
 return(
-<div style = {{border:"1px solid black",padding:"5px"}}>
-    {props.item.msg}
+<div className = "Post">
+    <h3>{props.item.msg}</h3>
+    <NavLink to = '/profile'>{props.item.user}</NavLink>
     <br/><br/>
-    <input type = "text" placeholder="Reply" id = "Reply"/>
-    <button type = "submit" onClick = {Repost}/>
 </div>);
 }
 export default Post;
