@@ -9,6 +9,7 @@ export default class Login extends React.Component{
             user : '',
             password : '',
             clicked : false,
+            Token :" ", 
         }
     this.submitHandler.bind(this);
     }
@@ -22,10 +23,19 @@ export default class Login extends React.Component{
         console.log(this.state.user,this.state.password)
         e.preventDefault();
         if(this.state.user && this.state.password){
-            Axios.post('http://localhost:8000/api/account/login',({'email':this.state.user,'password':this.state.password}))
+            Axios.post('http://localhost:8000/api/account/login',({'username':this.state.user,'password':this.state.password}))
             .then((response)=>{
-                console.log(response)
-                alert(response.data.response)
+                // Token is stored
+                if(response.status == 200){
+                    this.setState(
+                        {
+                            Token : response.data.token
+                        }
+                    )
+                }
+                else{
+                    alert("Invalid Username or Password");
+                }
             })}
         else{
             alert("Bhar usko");

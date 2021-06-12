@@ -2,9 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom'
 import Posts from './posts/Posts';
+import  CreateBlog from "./Blogs/CreateBlog";
 export default class Homepage extends React.Component{
 state = {
-    data : ""
+    data : "",
 }
 componentDidMount(){
     axios.get("http://localhost:8000")
@@ -24,8 +25,8 @@ return(<div>
     <NavLink to = '/signup'>Sign Up</NavLink>
     </div>
     </span>
-    <h1>{this.state.data}</h1>
     <Posts></Posts>
+    <CreateBlog></CreateBlog>
     </div>
 );}
 }

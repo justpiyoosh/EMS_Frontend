@@ -1,6 +1,8 @@
 import Axios from 'axios';
 import React from 'react';
-import {NavLink  } from "react-router-dom";
+import {NavLink, Redirect  } from "react-router-dom";
+import {Route} from 'react-router-dom';
+import Homepage from './Homepage';
 export default class Login extends React.Component{
     constructor(props){
         super();
@@ -28,8 +30,9 @@ export default class Login extends React.Component{
         else{
             Axios.post('http://localhost:8000/api/account/register',({'email':this.state.user,'username':this.state.username,'password':this.state.password,'password2':this.state.confirm_password}))
             .then((response)=>{
-                console.log(response)
-                alert(response.data.response)
+                
+                //Redirect to login page on successful user signup
+                
             })
         }
     }
