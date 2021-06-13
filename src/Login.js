@@ -14,7 +14,7 @@ class Login extends React.Component{
             user : '',
             password : '',
             clicked : false,
-            Target : cookies.get('Target') || 'buffer',    
+            Token : cookies.get('Token') || 'buffer',    
         }
     this.submitHandler.bind(this);
     }
@@ -31,7 +31,7 @@ class Login extends React.Component{
                 // Token is stored
                 if(response.status === 200){
                     const { cookies } = this.props;
-                    cookies.set('Target',response.data.token,{path:'/'})
+                    cookies.set('Token',response.data.token,{path:'/'})
                     return (this.props.history.push('/createpost'));
                 }
                 else{

@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
-export default class CreateBlog extends Component{
+import { withRouter } from 'react-router-dom';
+class CreateBlog extends Component{
     state = {
         title : "",
         body : ""
@@ -11,20 +12,52 @@ export default class CreateBlog extends Component{
         })
     }
     PostBlog = () =>{
+        var cookie = document.cookie
+        var token = cookie.split(';')
+        var name = "Token=";
+        var authToken = "Token "
+        for(var j = 0;j<token.length;j++){
+            var c = token[j]
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+              }
+              if (c.indexOf(name) === 0) {
+                authToken += c.substring(name.length, c.length)
+                break;
+              }
+            }
+        if(authToken === "Token "){
+            return (this.props.history.push('/login'))
+        }
         let config = {
             headers: {
-                Authorization: "Token 7d60554184594ce585b042ee28d53a5318bdffcf"
+                Authorization: authToken
             }
           }
-        Axios.Post("localhost:8000/api/blog/create",{"title":this.state.title,"body":this.state.body},config);
+        // Axios.Post("localhost:8000/api/blog/create",{"title":this.state.title,"body":this.state.body},config);
     }
     render(){
         return(
             <div>
+                <h1>
+                    Create Blog
+                </h1>
+                <br/>
+                <br/>
+                <h3>
+                    Title
+                </h3>
+                <br/>
                 <input type = "text" name = "title" value = {this.state.title} onChange = {this.ChangeHandler}/>
+                <br/>
+                <h3>
+                    Body
+                </h3>
+                <br/>
                 <input type = "text" name = "body" value = {this.state.body} onChange = {this.ChangeHandler} />
                 <button type = "submit" onClick = {this.PostBlog}>Post</button>
             </div>
         );
     }
 }
+export default withRouter(CreateBlog);

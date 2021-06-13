@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom'
 import Posts from './posts/Posts';
-import  CreateBlog from "./Blogs/CreateBlog";
 import Signup from './Signup'
 export default class Homepage extends React.Component{
 state = {
@@ -28,9 +27,18 @@ return(
         </div>
     </span>
     <div className="topPost">
+        <h1>
+            Top Posts
+        </h1>
         <Posts/>
+        <NavLink to = "/viewpost">Read More</NavLink> 
     </div>
-    <Signup/>
+    <div className = "signup">
+        <Signup/>
+    </div>
+    <footer>
+
+    </footer>
 </div>
 );}
 }

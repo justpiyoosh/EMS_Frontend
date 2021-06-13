@@ -30,7 +30,12 @@ class Signup extends React.Component{
             .then((response)=>{
                 console.log(response);
                 //Redirect to login page on successful user signup
-                return(this.props.history.push('/login'));
+                if(response.status === 200){
+                    return(this.props.history.push('/login'));
+                }
+                else{
+                    alert("Username/Email already exist");
+                }
             })
             .catch((e)=>{
                 console.warn(e.message);
@@ -40,30 +45,31 @@ class Signup extends React.Component{
     }
     render(){
         return(
-            <div className = "signUp">
+            <div>
                 <h1>Sign Up</h1>
                 <form onSubmit={this.submitHandler}>
                 <div className='tab'>
-                <input type='email' value={this.state.user} name ='user' onChange={this.handleChange}/>
+                <input type='email' value={this.state.user} name ='user' onChange={this.handleChange} required/>
                 <label className="label-name">
                 <span className="content-name">Email</span></label>
                 </div>     
                 <div className='tab'>
-                <input type='text' value={this.state.username} name ='username' onChange={this.handleChange}/>
+                <input type='text' value={this.state.username} name ='username' onChange={this.handleChange} required/>
                 <label className="label-name">
                 <span className="content-name">Username</span></label>
                 </div>           
                 <div className='tab'>
-                <input type='password' value={this.state.password} name ='password' onChange={this.handleChange}/>
+                <input type='password' value={this.state.password} name ='password' onChange={this.handleChange} required/>
                 <label className="label-name">
                 <span className="content-name">Password</span></label>
                 </div>     
                 <div className='tab'>
-                <input type='password' value={this.state.confirm_password} name ='confirm_password' onChange={this.handleChange}/>
+                <input type='password' value={this.state.confirm_password} name ='confirm_password' onChange={this.handleChange} required/>
                 <label className="label-name">
                 <span className="content-name">Confirm Password</span></label>
                 </div>
-                <button>Sign Up</button>           
+                <br/>
+                <button style = {{width:"40%"}}>Sign Up</button>           
             </form>
             </div>
         );
