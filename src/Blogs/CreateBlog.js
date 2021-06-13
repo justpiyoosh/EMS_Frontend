@@ -34,27 +34,24 @@ class CreateBlog extends Component{
                 Authorization: authToken
             }
           }
-        // Axios.Post("localhost:8000/api/blog/create",{"title":this.state.title,"body":this.state.body},config);
+        Axios.Post("localhost:8000/api/blog/create",{"title":this.state.title,"body":this.state.body},config);
     }
     render(){
         return(
-            <div>
+            <div className = "createBlog">
                 <h1>
                     Create Blog
                 </h1>
-                <br/>
-                <br/>
                 <h3>
                     Title
                 </h3>
-                <br/>
-                <input type = "text" name = "title" value = {this.state.title} onChange = {this.ChangeHandler}/>
+                <textarea name = "title" value = {this.state.title} onChange = {this.ChangeHandler}/>
                 <br/>
                 <h3>
                     Body
                 </h3>
-                <br/>
-                <input type = "text" name = "body" value = {this.state.body} onChange = {this.ChangeHandler} />
+                <textarea name = "body" value = {this.state.body} onChange = {this.ChangeHandler} />
+                <br/><br/>
                 <button type = "submit" onClick = {this.PostBlog}>Post</button>
             </div>
         );

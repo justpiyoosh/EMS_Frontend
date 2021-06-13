@@ -30,7 +30,7 @@ class Signup extends React.Component{
             .then((response)=>{
                 console.log(response);
                 //Redirect to login page on successful user signup
-                if(response.status === 200){
+                if(response.data.status_message === "Nice"){
                     return(this.props.history.push('/login'));
                 }
                 else{
@@ -38,7 +38,7 @@ class Signup extends React.Component{
                 }
             })
             .catch((e)=>{
-                console.warn(e.message);
+                alert(e.message);
                 return(this.props.history.push('/'));
             })
         }

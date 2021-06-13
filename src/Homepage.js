@@ -18,12 +18,13 @@ return(
 <div className = "Home">
     <span className = "Header">
         <div className="Hlink">
-            <NavLink to = '/'>Homepage</NavLink></div>
-            <div className="Hlink">
-            <NavLink to = '/login'>Login</NavLink>
-            </div>
-            <div className="Hlink">
+            <NavLink to = '/'>Homepage</NavLink>
+        </div>
+        <div className="Hlink">
             <NavLink to = '/signup'>Sign Up</NavLink>
+        </div>
+        <div className="Hlink">
+            <NavLink to = '/login'>Login</NavLink>
         </div>
     </span>
     <div className="topPost">

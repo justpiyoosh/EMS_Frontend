@@ -7,7 +7,7 @@ import Posts from './posts/Posts'
 import './App.css'
 function App() {
   return (
-    <div className = 'App'>
+    <div className = 'App'>  
       <Switch>  
         <Route path = '/' exact component = {Homepage}/>
         <Route path = '/login' exact component = {Login}/>

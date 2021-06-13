@@ -126,3 +126,8 @@ color: rgb(0, 153, 255);
   margin-right: 15px;
   text-align :center;
 }
+
+.createBlog{
+  width: 100%;
+  text-align: center;
+}
