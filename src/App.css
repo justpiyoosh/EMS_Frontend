@@ -1,12 +1,13 @@
 .App {
   display: flex;
   flex-wrap: wrap;
+  font-family: Helvetica, Arial, sans-serif;
 }
 .Home{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: white
+  overflow: hidden;
 }
 .Header{
   text-align: center;
@@ -44,12 +45,13 @@
   font-family: sans-serif;
   text-align: center;
 }
-
 .signup{
-  align-items: center;
+  height: 100vh;
+  display: -webkit-flex;
+  flex-direction: column;
   justify-content: center;
-  width: 45%;
-  padding-left: 5%;
+  align-items: center;
+  padding-left: 30%;
 }
 form{
   position: relative;
@@ -58,6 +60,7 @@ form{
   flex-flow: column;
   width:100%;
   padding:2%;
+  border:1px solid black;
   }
 .tab{
   position: relative;
@@ -114,19 +117,33 @@ color: rgb(0, 153, 255);
   }
 
 .Post{
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   border-bottom: black 2px inset;
 }
-
-.topPost{
-  width: 46%;
-  padding: 5px;
-  margin-right: 15px;
-  text-align :center;
+.PostBlock{
+  width: 100%;
 }
 
+.HomePageImage{
+  width: 50%;
+}
+.HomeAction{
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#MyButton{
+  background-color: aquamarine;
+  width: 300px;
+  height: 45px;
+  border-radius: 15px;
+}
 .createBlog{
   width: 100%;
   text-align: center;

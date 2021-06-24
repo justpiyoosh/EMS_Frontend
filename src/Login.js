@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import Axios from 'axios';
 import { withCookies, Cookies } from 'react-cookie';
 import { instanceOf } from 'prop-types';
@@ -39,19 +39,12 @@ class Login extends React.Component{
                 }
             })}
         else{
-            alert("Bhar usko");
+            alert("All field are not filled correctly");
         }
     }
     render(){
         return(
-            <div>
-                <div className = "Header">
-                <div className="Hlink">
-                <NavLink to = '/'>Homepage</NavLink></div>  
-                <div className="Hlink">
-                <NavLink to = '/signup'>Sign Up</NavLink>
-                </div>
-                </div> 
+            <div className = "signup">
                 <h1>Login</h1>     
                 <form onSubmit={this.submitHandler}>
                 <div className='tab'>
@@ -64,11 +57,11 @@ class Login extends React.Component{
                 <label className="label-name">
                     <span className="content-name">Password</span></label>
                 </div>
-                <button type = "submit">LOGIN</button>           
+                <br/>
+                <button type = "submit" id = "MyButton" style={{alignSelf:"center"}}>LOGIN</button>           
             </form>
             </div>
         );
     }
 }
-
 export default (withRouter(Login),withCookies(Login));

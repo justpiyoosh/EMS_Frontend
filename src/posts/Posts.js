@@ -10,7 +10,7 @@ export default class Posts extends Component{
                 return <Post key = {index} item = {data}/>
             });
         return(
-            <div>
+            <div class = "PostBlock">
                 {post}
             </div>
         );

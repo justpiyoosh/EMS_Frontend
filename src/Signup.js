@@ -45,8 +45,9 @@ class Signup extends React.Component{
     }
     render(){
         return(
-            <div>
+            <div className = "signup">
                 <h1>Sign Up</h1>
+                <br/>
                 <form onSubmit={this.submitHandler}>
                 <div className='tab'>
                 <input type='email' value={this.state.user} name ='user' onChange={this.handleChange} required/>
@@ -69,7 +70,7 @@ class Signup extends React.Component{
                 <span className="content-name">Confirm Password</span></label>
                 </div>
                 <br/>
-                <button style = {{width:"40%"}}>Sign Up</button>           
+                <button id = "MyButton" style={{alignSelf:"center"}}>Sign Up</button>           
             </form>
             </div>
         );
