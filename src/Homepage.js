@@ -31,7 +31,7 @@ export default class Homepage extends React.Component
             return(
             <div className = "Home">
                 <div className = "HomePageImage">
-                    <img src = {Hmpg} alt = "Failed To load" width = "100%"/>
+                    <img src = {Hmpg} alt = "Failed To load" width = "100%" height = "100%"/>
                 </div>
                 <div className = "HomeAction">
                     <h1 style = {{color:'skyblue'}}>Join Us Now</h1>

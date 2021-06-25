@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Post from './Post'
 export default class Posts extends Component{
     state = {
-        posts : [{user:"Po",msg:"Hello My friend"},{user:"Master",msg:"This is good"},{user:"Godzilaa99",msg:"Nice"},{user:"Champ",msg:"Come here BoY!!"}]
+        posts : [{user:"SAurav",msg:"Hello My friend"},{user:"Saurav",msg:"This is good"},{user:"Piyoosh",msg:"Nice"},{user:"Shivanshu",msg:"Nice"}]
     }
     render(){
         let post = this.state.posts.map(
