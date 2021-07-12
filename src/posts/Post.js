@@ -1,4 +1,3 @@
-import Axios from 'axios';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 const Post = (props) =>{

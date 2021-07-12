@@ -7,9 +7,9 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  overflow: hidden;
+  align-items: center;
 }
-.Header{
+footer{
   text-align: center;
   border-bottom: rgba(17, 99, 207, 0.835) 2px inset;
   font-size: xx-large;
@@ -122,10 +122,13 @@ color: rgb(0, 153, 255);
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-bottom: black 2px inset;
+  border: black 2px inset;
 }
 .PostBlock{
-  width: 100%;
+  margin-left: 18%;
+  width: 60%;
+  align-items: center;
+  text-align: center;
 }
 
 .HomePageImage{

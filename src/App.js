@@ -5,6 +5,7 @@ import Signup from './Signup'
 import CreateBlog from './Blogs/CreateBlog'
 import Posts from './posts/Posts'
 import './App.css'
+import Profile from './profile/profile'
 function App() {
   return (
     <div className = 'App'>  
@@ -14,6 +15,7 @@ function App() {
         <Route path = '/signup' exact component = {Signup}/>
         <Route path = '/viewpost' exact component = {Posts}/>
         <Route path = '/createpost' exact component = {CreateBlog}/>
+        <Route path = '/profile' exact component = {Profile}/>
       </Switch>
     </div>
   );
