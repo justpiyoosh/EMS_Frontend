@@ -13,7 +13,8 @@ export default class Homepage extends React.Component
             {console.log('itm',res)
             this.setState({data:res.data})
     })}
-    render(){var cookie = document.cookie
+    render()
+    {var cookie = document.cookie
         var token = cookie.split(';')
         var name = "Token=";
         var authToken = "Token "

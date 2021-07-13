@@ -35,6 +35,7 @@ class CreateBlog extends Component{
             }
           }
         Axios.Post("localhost:8000/api/blog/create",{"title":this.state.title,"body":this.state.body},config);
+        alert("Posted Successfully");
     }
     render(){
         return(
