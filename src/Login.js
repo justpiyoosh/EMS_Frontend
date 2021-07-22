@@ -37,7 +37,9 @@ class Login extends React.Component{
                 else{
                     alert("Invalid Username or Password");
                 }
-            })}
+            })
+            .catch(err => alert(err));
+        }
         else{
             alert("All field are not filled correctly");
         }
